@@ -1,0 +1,26 @@
+Algorithm ShortestPaths(v, dist, cost, n)
+{
+
+    for(i=1 to n)
+    {
+        S[i] = false ; //
+        dist[i] = cost[v,i] ; 
+    }
+
+    S[v] = true ;
+    dist[v] = 0.0 ;
+
+    for(i=2 to n-1)
+    {
+       
+        S[u] = true ;
+        for(each w adjacent to u with S[w] = false)
+        {
+          
+            if(dist[u] + cost[u,w] < dist[w])
+            {
+                dist[w] = dist[u] + cost[u,w] ;
+            }
+        }
+    }
+}
