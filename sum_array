@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std ;
+void add(int arr[],int i,int n,int &sum)
+{
+    if(i==n)return;
+    sum=sum+arr[i];
+    add(arr,i+1,n,sum);
+}
+
+int main()
+{
+    int arr[5]={1,2,3,4,5};
+    int sum=0;
+    add(arr,0,5,sum);
+    cout<<sum;
+    return 0;
+}
