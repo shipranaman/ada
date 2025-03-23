@@ -1,0 +1,89 @@
+#include<iostream>
+using namespace std;
+class max_heap
+{
+    public:
+    int * arr;
+    int size;
+    int total_size;
+    max_heap(int n)
+    {
+        arr=new int[n];
+        size=0;
+        total_size=n;
+    }
+    void create_heap(int value)
+{
+    arr[size]=value;
+    size++;
+}
+void create()
+{
+    for(int i=(total_size/2)-1;i>=0;i--)
+    {
+        heapify(i,size);
+    }
+}
+void print()
+{
+    
+    for(int i=0;i<total_size;i++)
+    {
+        cout<<arr[i]<<" ";
+    }
+}
+
+void heapify(int index , int size)
+{
+    int largest=index;
+    int left=2*index+1;
+    int right=2*index+2;
+    if(left<size&&arr[left]>arr[largest])
+    {
+        largest=left;
+    }
+    if(right<size&&arr[right]>arr[largest])
+    {
+        largest=right;
+    }
+    if(largest!=index)
+    {
+        swap(arr[largest],arr[index]);
+          heapify(largest,size);
+    }
+  }
+  void sort()
+  {
+    for(int i=size-1;i>=0;i--)
+    {
+        swap(arr[0],arr[i]);
+    size--;
+     heapify(0,size);
+    }
+    
+  
+  }
+};
+
+int main()
+{
+    max_heap h(6);
+    h.create_heap(4);
+    h.create_heap(6);
+    h.create_heap(14);
+    h.create_heap(11);
+    h.create_heap(12);
+    h.create_heap(84);
+    h.print();
+
+    cout<<endl;
+    h.create();
+    h.print();
+    cout<<endl;
+    h.sort();
+    h.print();
+    cout<<endl;
+
+    
+    return 0;
+}
