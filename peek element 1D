@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std ;
+
+int peek(int arr[], int n, int start, int end)
+{
+    
+    if (start == end) 
+    return arr[start];
+
+    int mid = start + (end-start)/2 ;
+
+    if(arr[mid] < arr[mid-1]) 
+    {
+        return peek(arr,n,start,mid-1) ;
+    }
+    if(arr[mid] < arr[mid+1]) 
+    {
+        return peek(arr,n,mid+1,end) ; 
+    }
+    return arr[mid] ;
+}
+
+int main()
+{
+    int arr[6] = {1,2,6,9,5,12};
+    
+
+    int res = peek(arr,6,0,5);
+    cout<<"Peek element = "<<res<<endl ;
+
+    return 0 ;
+}
