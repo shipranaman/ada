@@ -1,0 +1,46 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+bool magic_sqaure(vector<vector<int>>&matrix)
+{
+    int n=matrix.size();
+    int diagonal1=0;
+    int diagonal2=0;
+    for(int i=0;i<n;i++)
+    {
+        diagonal1=diagonal1+matrix[i][i];
+    }
+    for(int i=0;i<n;i++)
+    {
+        diagonal2=diagonal2+matrix[i][n-i-1];
+    }
+    if(diagonal1!=diagonal2)
+    {
+        return 0;
+    }
+    for(int i=0;i<n;i++)
+    {
+        int rowsum=0;
+        int colsum=0;
+        for(int j=0;j<n;j++)
+        {
+            rowsum=rowsum+matrix[i][j];
+            colsum=colsum+matrix[j][i];
+        }
+        if((rowsum!=colsum)||(rowsum!=diagonal1)||(colsum!=diagonal1)) return 0;
+    }
+    return 1;
+}
+int main()
+{
+    vector<vector<int>>matrix={
+        {1,15,14,4},
+        {12,6,7,9},
+        {8,10,11,5},
+        {13,3,2,16}
+    };
+    bool check=magic_sqaure(matrix);
+    if(check)cout<<"it is a magic sqaure";
+    else cout<<"not a magic sqaure";
+    return 0;
+}
