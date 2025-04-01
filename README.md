@@ -206,6 +206,38 @@ SPACE COMPLEXITY : O(E + V) - Storing edge list: O(E)
 - MST result storage: O(V)
 
 
+
+
+AIM: to find the shortest distance between the all pairs of vertices of graph (floyd warshall algorithm)
+WORKING : 1. Start 2. Input:
+enter the size of the matrix
+enter the elements of the matrix
+3Initialization
+4Create a distance matrix graph[][] such that graph[i][j] is the weight of the edge from i to j. If there is no edge, initialize it to -1. For all vertices i, set graph[i][i] = 0 because the distance from a node to itself is zero.
+5.when input of elements is completed go iteratively through the graph matrix and replace -1 with infintiy because there is no edge between those vertices 
+6.The algorithm iteratively updates the distance matrix by considering whether a path from vertex i to vertex j through an intermediate vertex k offers a shorter path than the current known distance. This is done by checking if:
+7.graph[i][j]>graph[i][k]+graph[k][j]
+8.If the above condition is true, update graph[i][j] with the new shorter distance.
+9.The algorithm does this for each possible intermediate vertex k and updates the matrix for each pair of vertices i and j.
+10.
+-stop
+-INPUT: enter the size of the matrix(n*n) 4
+-enter the elements of the matrix:
+0 -1 2 4
+3 0 -1 10
+-1 -1 0 1
+6 4 -1 0
+-output
+0 7 2 3
+3 0 5 6
+7 5 0 1
+6 4 8 0
+-time complexity: O(n^3)
+
+
+
+
+
 AIM : Write a program to implement Prim's Algorithm for finding the Minimum Spanning Tree (MST) of a connected, weighted, and undirected graph. WORKING : 1. Start 2. Input:
 - Number of vertices n and edges e.
 - The weight of each edge between vertices.
@@ -243,31 +275,6 @@ SPACE COMPLEXITY : O(n)
 
 
 
-AIM: to find the shortest distance between the all pairs of vertices of graph (floyd warshall algorithm)
-WORKING : 1. Start 2. Input:
-enter the size of the matrix
-enter the elements of the matrix
-3Initialization
-4Create a distance matrix graph[][] such that graph[i][j] is the weight of the edge from i to j. If there is no edge, initialize it to -1. For all vertices i, set graph[i][i] = 0 because the distance from a node to itself is zero.
-5.when input of elements is completed go iteratively through the graph matrix and replace -1 with infintiy because there is no edge between those vertices 
-6.The algorithm iteratively updates the distance matrix by considering whether a path from vertex i to vertex j through an intermediate vertex k offers a shorter path than the current known distance. This is done by checking if:
-7.graph[i][j]>graph[i][k]+graph[k][j]
-8.If the above condition is true, update graph[i][j] with the new shorter distance.
-9.The algorithm does this for each possible intermediate vertex k and updates the matrix for each pair of vertices i and j.
-10.
--stop
--INPUT: enter the size of the matrix(n*n) 4
--enter the elements of the matrix:
-0 -1 2 4
-3 0 -1 10
--1 -1 0 1
-6 4 -1 0
--output
-0 7 2 3
-3 0 5 6
-7 5 0 1
-6 4 8 0
--time complexity: O(n^3)
 
 
 
