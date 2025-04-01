@@ -276,22 +276,36 @@ SPACE COMPLEXITY : O(n)
 
 
 
-Input:
+AIM: Given a set of items, each with a weight and a value, determine the most valuable subset of items that can be included in a knapsack of limited capacity.(0/1 knapsack problem)
+1. start
+2. Input:
+n items, each with:
 
-Items:
+a weight w_i for item i (where i = 1, 2, ..., n)
 
-Item 1: weight = 2, value = 3
+a value v_i for item i (where i = 1, 2, ..., n)
 
-Item 2: weight = 3, value = 4
+A knapsack with capacity W, meaning the total weight of the items you select cannot exceed W.
+values of the items={0,1,2,5,6}
+weights of the items ={0,2,3,4,5}
+int w=8 which is knapsack capacity
+3.
+Define a 2D DP table dp[i][w] where:
 
-Item 3: weight = 4, value = 5
+i is the number of items considered (from 0 to n).
 
-Item 4: weight = 5, value = 6
+w is the capacity of the knapsack (from 0 to W).
 
-Knapsack capacity W = 5
+If we don't select item i, then dp[i][w] = dp[i-1][w].
 
+If we do select item i and the current capacity w is greater than or equal to the weight of item i, then:
 
+dp[i][w] = max(dp[i-1][w], dp[i-1][w - w_i] + v_i).
 
+The solution is found at dp[n][W], which gives the maximum value that can be obtained with a knapsack of capacity W and n items.
+4.stop
+time complexity:O(n*W)
+space complexity:O(n*W)
 
 
 
