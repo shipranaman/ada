@@ -310,6 +310,32 @@ space complexity:O(n*W)
 
 
 
+AIM: to determine number of stages in the multistage graph
+1. start
+2. 2. initialization int maxi=0
+3. input
+4. given the adjacency lists of the multistage graph
+5. steps
+6. using BFS(breadth first search approach)
+7. create a queue which has enteries of a pair {node,stage_number}
+8. run the while loop until queue is not empty updating the maxi
+9. stop;
+10. output: value of maxi;
+11. input
+12.     vector<int>adj[8];
+    adj[0].push_back((1,2,3));
+    adj[1].push_back((4,5));
+   adj[2].push_back((5,6));
+ adj[3].push_back((6));
+    adj[4].push_back((7));
+    adj[5].push_back((7));
+    adj[6].push_back((7));
+output 4
+    time complexity: O(v+e)
+    where v is number of vertices and e is number of edges
+    
+
+
 
 
 
