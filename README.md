@@ -290,6 +290,7 @@ values of the items={0,1,2,5,6}
 weights of the items ={0,2,3,4,5}
 int w=8 which is knapsack capacity
 3.
+sort the weights in ascending order
 Define a 2D DP table dp[i][w] where:
 
 i is the number of items considered (from 0 to n).
