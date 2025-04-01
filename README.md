@@ -276,6 +276,22 @@ SPACE COMPLEXITY : O(n)
 
 
 
+Input:
+
+Items:
+
+Item 1: weight = 2, value = 3
+
+Item 2: weight = 3, value = 4
+
+Item 3: weight = 4, value = 5
+
+Item 4: weight = 5, value = 6
+
+Knapsack capacity W = 5
+
+
+
 
 
 
