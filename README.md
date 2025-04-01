@@ -8,6 +8,9 @@ AIM : To generate an n × n magic square, where the sum of each row, column, and
 TIME COMPLEXITY : O(n²) SPACE COMPLEXITY : O(n²)
 ![image](https://github.com/user-attachments/assets/add58eef-fa69-4f48-924d-81b3bfe6772b)
 
+
+
+
 6. 
 7. 
 AIM : To find a peak element in a 1D array, where a peak is an element that is greater than its neighbors. WORKING : 1. Start
@@ -27,6 +30,9 @@ OUTPUT : Input - Enter size: 6 Output - Peak element: 9 Enter elements: 1 2 6 9 
 
 TIME COMPLEXITY : O(log n) SPACE COMPLEXITY : O(1)
 
+
+
+
 AIM : To find a peak element in a 2D array, where a peak is an element that is greater than or equal to its neighbors. WORKING : 1. Start
 2. Input: Read the number of rows m and columns n, followed by the elements of the 2D array.
 3. Recursive Search for Peak:
@@ -42,6 +48,8 @@ AIM : To find a peak element in a 2D array, where a peak is an element that is g
 OUTPUT : Input - Enter size (m x n): 3 Output - Peak element: 8 Enter elements: 1 2 3 7 8 5 4 6 2
 
 TIME COMPLEXITY : O(m log n), m = rows, n = cols SPACE COMPLEXITY : O(1)
+
+
 
 
 AIM : To measure the execution time of Bubble Sort for varying array sizes and plot the complexity graph. WORKING : 1. Start
@@ -64,6 +72,8 @@ OUTPUT : Two CSV files are generated: - size.csv: Contains the array sizes for w
 
 TIME COMPLEXITY : O(n²) SPACE COMPLEXITY : O(1)
 ![image](https://github.com/user-attachments/assets/ca7e4f01-1b28-4348-a963-8656a8410d1d)
+
+
 
 
 AIM : To measure the execution time of Insertion Sort for varying array sizes and plot the complexity graph. WORKING : 1. Start
@@ -89,6 +99,9 @@ TIME COMPLEXITY : O(n²) - worst , O(n) - best SPACE COMPLEXITY : O(1)
 ![image](https://github.com/user-attachments/assets/2e2e243e-b766-4e2c-b39e-149a673b5e1c)
 
 
+
+
+
 AIM : To measure the execution time of Selection Sort for varying array sizes and plot the complexity graph. WORKING : 1. Start
 2. Input:
 - The program generates arrays of sizes (2, 4, 8, 16, ..., 25000).
@@ -110,6 +123,8 @@ OUTPUT : Two CSV files are generated: - size.csv: Contains the array sizes for w
 TIME COMPLEXITY : O(n²) SPACE COMPLEXITY : O(1)
 
 ![image](https://github.com/user-attachments/assets/37d34d16-76b4-41e1-880a-e1052ed66223)
+
+
 
 AIM : To measure the execution time of Quick Sort for varying array sizes and output the results to CSV files.
 
@@ -137,6 +152,8 @@ TIME COMPLEXITY : - Best & Average Case: O(n log n) due to the divide-and-conque
 - Worst Case: O(n²) when the pivot is always the smallest or largest element. SPACE COMPLEXITY : O(log n) for the recursion stack in the average case.
 - ![image](https://github.com/user-attachments/assets/11174a4c-cb8a-4a2e-a080-b73332efbc98)
 
+
+
 AIM : Write a program to find the maximum and minimum elements in an array using the divide and conquer approach.
 WORKING : 1. Start
 2. Input: Array arr[] of size n.
@@ -162,6 +179,71 @@ WORKING : 1. Start
   OUTPUT : Input size=8 Output - 6,3,4,11,16,2,15,7 Max : 16 Min : 2
 
 TIME COMPLEXITY : O(n) SPACE COMPLEXITY : O(log n)
+
+
+
+AIM : Write a program to implement Kruskal's Algorithm for finding the Minimum Spanning Tree (MST) of a connected, weighted, and undirected graph using the Union-Find method. WORKING : 1. Start 2. Input the number of vertices n and edges e.
+3. Create an edge list where each edge has a source, destination, and weight.
+4. Use the Union-Find technique to check for cycles and handle component merging.
+5. Implement a Min-Heap to sort the edges based on their weights.
+6. Iterate through the sorted edge list:
+- If the selected edge doesn't form a cycle, add it to the MST.
+- Use the Union-Find method to merge sets.
+7. Stop when n-1 edges are included in the MST.
+8. Calculate and display the minimum cost of the MST and the edges included.
+9. If MST cannot be formed, display an appropriate message.
+10. Stop
+
+OUTPUT : Input number of vertices  4 Output - Minimum Cost of MST: 9
+Enter number of edges: 4Edges in the MST:
+        {0,1,3},
+        {0,3,5},
+        {1,2,1},
+        {2,3,8}
+TIME COMPLEXITY : O(E log E) , E = no. of edges
+
+SPACE COMPLEXITY : O(E + V) - Storing edge list: O(E)
+- Parent array for Union-Find: O(V)
+- MST result storage: O(V)
+
+
+AIM : Write a program to implement Prim's Algorithm for finding the Minimum Spanning Tree (MST) of a connected, weighted, and undirected graph. WORKING : 1. Start 2. Input:
+- Number of vertices n and edges e.
+- The weight of each edge between vertices.
+3. Initialization:
+- Create a cost matrix to store the weights of edges.
+- Create a near array to track the nearest vertex in the MST for each vertex.
+4. Start from the Minimum Edge:
+- Find the edge with the minimum weight to initialize the MST.
+5. Construct the MST:
+- Use the near array to find the minimum weighted edge from the MST to any other vertex.
+- Add this edge to the MST.
+- Update the near array to reflect the new additions.
+6. Repeat until the MST has n-1 edges.
+7. Calculate the Minimum Cost and display the edges of the MST.
+8. If MST cannot be formed, print an appropriate message. 9. Stop
+
+input
+        {0,2,0,0,0,4},
+        {0,8,0,6,1,0},
+        {0,8,0,6,1,0},
+        {0,0,6,0,12,0},
+        {0,0,1,0,12,0},
+        {4,3,0,0,2,0}  };
+output
+Edge    Weight
+5 - 1   3 
+0 - 2   0 
+0 - 3   0 
+1 - 4   1 
+0 - 5   4 
+
+TIME COMPLEXITY : O(n²)
+
+SPACE COMPLEXITY : O(n)
+
+
+
 
 
 
