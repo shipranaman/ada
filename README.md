@@ -306,7 +306,8 @@ dp[i][w] = max(dp[i-1][w], dp[i-1][w - w_i] + v_i).
 The solution is found at dp[n][W], which gives the maximum value that can be obtained with a knapsack of capacity W and n items.
 4.stop
 time complexity:O(n*W)
-space complexity:O(n*W)
+
+space complexity(n*W)
 
 
 
@@ -334,6 +335,29 @@ AIM: to determine number of stages in the multistage graph
 output 4
     time complexity: O(v+e)
     where v is number of vertices and e is number of edges
+
+
+
+    AIM: given the chain of matrices A1,A2,A3.....An. The aim is to multiply them in such a way that number of scaler multiplications are reduced.
+    start
+    1. input the array of integers p (p1,p2,p3,p4...pn)
+    2. let m[i][j] be the matrices that represents the minimum number of scaler multiplications
+    3. let s[i][j] be the matrices that represent the index at which we must parenthize the matrix
+    4. initialize both the matrices with 0
+    5. for each chain length l=2 to n
+    j=i+l-1
+for each subproblem calculate the minimum value of
+m[i][k]+m[k+1][j]+p(i-1)*p(j)*p(k) where k= i to j-1
+6. the final output would be m[1][n-1]
+7. input={10,20,5,10,30}
+   output
+   0,1000,1500,4000
+   0,0,1000,4500
+   0,0,0,1500
+   0,0,0,0
+   time complexity O(n^3)
+      
+
     
 
 
