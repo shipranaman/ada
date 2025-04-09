@@ -356,7 +356,25 @@ m[i][k]+m[k+1][j]+p(i-1)*p(j)*p(k) where k= i to j-1
    0,0,0,1500
    0,0,0,0
    time complexity O(n^3)
-      
+
+
+
+
+   AIM:
+   solve 0/1 knapsack problem using set based state management
+   1 start
+   2. input an array p[] which consists of profits of the given items
+   3. input an array w[] which consists of weights of the corresponding items
+   4. input the maximum capacity of knapack
+   5. the goal is to select the combination of items such that profit is maxiized and weight of the items donot exceed the weight of the knapsack
+   6. output
+   7. input p[3]={1,2,5}
+      w[3]={2,3,4}
+      W(weight of knapsack)=6
+      output=6
+      time complexity=O(n*logn)
+      space complexity=O(n)
+            
 
     
 
