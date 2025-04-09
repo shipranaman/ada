@@ -374,6 +374,9 @@ m[i][k]+m[k+1][j]+p(i-1)*p(j)*p(k) where k= i to j-1
       output=6
       time complexity=O(n*logn)
       space complexity=O(n)
+      edge cases
+      1. if the weight of all the items exceed the weight of knapsack then 0 items are included
+      2. therefore if no items are selected then profit gained will be 0
             
 
     
