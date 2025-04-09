@@ -1,0 +1,59 @@
+#include<iostream>
+using namespace std;
+#include<set>
+set<pair<int,int>>create(set<pair<int,int>>s1,int p[],int w[],int i)
+{
+    set<pair<int,int>>s2;
+    for(auto x:s1)
+    {
+        if(x.second+w[i]>6)
+        {
+            continue;
+        }
+        s2.insert({x.first+p[i],x.second+w[i]});
+    }
+    return s2;
+}
+int main()
+{
+    int p[3]={1,2,5};
+    int w[3]={2,3,4};
+    set<pair<int,int>>s1;
+    set<pair<int,int>>sfinal;
+    s1.insert({0,0});
+    sfinal.insert({0,0});
+    set<pair<int,int>>s2;
+
+    for(int i=0;i<3;i++)
+    {
+        s1.clear();
+        for(auto x:sfinal)
+        {
+            s1.insert(x);
+        }
+        s2=create(s1,p,w,i);
+        for(auto x:s1)
+        {
+            sfinal.insert(x);
+        }
+        for(auto x:s2)
+        {
+            sfinal.insert(x);
+        }
+        s1.clear();
+
+    }
+    int ans=-1;
+    for(auto x:sfinal)
+    {
+        if(x.second>ans)
+        {
+            ans=x.second;
+        }
+    }
+    cout<<ans;
+    return 0;
+
+
+
+}
