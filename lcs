@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+#include<algorithm>
+#include<string.h>
+int findlcs(int n,int m,string &s1,string &s2)
+{
+    if(n==0||m==0)
+    {
+        return 0;
+    }
+    if(s1[n-1]==s2[m-1])
+    {
+        return 1+findlcs(n-1,m-1,s1,s1);
+    }
+    else{
+        return max(findlcs(n-1,m,s1,s2),findlcs(n,m-1,s1,s2));
+    }
+}
+int main()
+{
+    cout<<"enter first string"<<endl;
+    string s1;
+    cin>>s1;
+    cout<<"enter second string"<<endl;
+    string s2;
+    cin>>s2;
+    int n=s1.size();
+    int m=s2.size();
+    int c=findlcs(n,m,s1,s2);
+    cout<<c;
+    return 0;
+
+
+
+}
