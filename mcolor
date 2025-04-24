@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+void nextval(int k,int n,int x[],int m,vector<vector<int>>&graph)
+{
+    do{
+        x[k]=(x[k]+1)%(m+1);
+    if(x[k]==0)return;
+    int i;
+    for(i=0;i<n;i++)
+    {
+        if(graph[k][i]!=0&&(x[i]==x[k]))
+        break;
+    }
+    if(i==n)
+    {
+        return;
+    }
+    }while(1);
+}
+void print(int x[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<x[i]<<" ";
+    }
+}
+bool mcolor(int k,int n,int x[],vector<vector<int>>&graph,int m)
+{
+    do{
+        nextval(k,n,x,m,graph);
+        if(x[k]==0)return false;
+        if(k==n-1)
+        {
+            cout<<"ys coloring is possible"<<endl;
+            print(x,n);
+            return 1;
+        }
+        else{
+            mcolor(k+1,n,x,graph,m);
+            return true;
+        }
+    }while(1);
+}
+int main()
+{
+    cout<<"enter the number of vertices"<<endl;
+    int n;
+    cin>>n;
+    int *x=new int[n];
+    for(int i=0;i<n;i++)
+    {
+        x[i]=0;
+    }
+    vector<vector<int>>graph={
+        {0,1,1,1},{1,0,1,0},{1,1,0,1},{1,0,1,0}
+    };
+   
+    cout<<"enter the number of colors"<<endl;
+    int m;
+    cin>>m;
+    bool c=mcolor(0,n,x,graph,m);
+    if(!c)
+    {
+        cout<<"no possible solution"<<endl;
+    }
+    return 0;
+
+
+
+}
