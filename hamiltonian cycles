@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+void nextval(int k, int x[], int n, vector<vector<int>>& graph) {
+    int j;
+    do {
+        if (k == 0) return;
+        x[k] = (x[k] + 1) % n; 
+        if (x[k] == 0 && k != 0) return;
+
+        
+
+        if (graph[x[k - 1]][x[k]] != 0) {  
+            for (j = 0; j < k; j++) {
+                if (x[j] == x[k]) break;  
+            }
+            if (j == k) {
+                if (k < n - 1 || (k == n - 1 && graph[x[k]][x[0]] != 0))  
+                    return;
+            }
+        }
+
+    } while (true);
+}
+void print(int x[],int n)
+{
+    for(int i=0;i<n;i++)
+    {
+        cout<<x[i]<<" ";
+    }
+    cout<<endl;
+    return;
+}
+void hamiltonian(int k,int x[],int n,vector<vector<int>>&graph)
+{
+    do{
+        nextval(k,x,n,graph);
+        if(x[k]==0&&k!=0)return;
+        if(k==n-1) 
+        {
+            print(x,n);
+            return;
+        }
+        else
+        hamiltonian(k+1,x,n,graph);
+    }while(true);
+}
+
+int main()
+{
+    cout<<"enter the number of vertices"<<endl;
+    int n;
+    cin>>n;
+    vector<vector<int>>graph={
+        {0,1,1,0,1},
+        {1,0,1,1,1},
+        {1,1,0,1,0},
+        {0,1,1,0,1},
+        {1,1,0,1,0}
+
+    };
+    int *x=new int[5];
+    for(int i=0;i<5;i++)
+    {
+        x[i]=0;
+    }
+    hamiltonian(0,x,n,graph);
+    return 0;
+}
