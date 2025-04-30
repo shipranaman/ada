@@ -494,7 +494,16 @@ Starts at a vertex
 Visits every other vertex exactly once
 
 Returns to the starting vertex
-![image](https://github.com/user-attachments/assets/c8a87725-6c9f-4ea5-b4e6-da423f2228c1)
+Hamiltonian cycles:
+0 1 2 3 4 0
+0 1 4 3 2 0
+0 2 1 3 4 0
+0 2 3 1 4 0
+0 2 3 4 1 0
+0 4 1 3 2 0
+0 4 3 1 2 0
+0 4 3 2 1 0
+
 
 
 
