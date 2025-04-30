@@ -204,6 +204,8 @@ TIME COMPLEXITY : O(E log E) , E = no. of edges
 SPACE COMPLEXITY : O(E + V) - Storing edge list: O(E)
 - Parent array for Union-Find: O(V)
 - MST result storage: O(V)
+- ![image](https://github.com/user-attachments/assets/c51db9a7-5607-4f01-b7aa-22fc90b5fa05)
+
 
 
 
@@ -233,6 +235,7 @@ enter the elements of the matrix
 7 5 0 1
 6 4 8 0
 -time complexity: O(n^3)
+![image](https://github.com/user-attachments/assets/7b174439-3e06-4242-9d70-d56e9f47a387)
 
 
 
@@ -273,6 +276,9 @@ TIME COMPLEXITY : O(n²)
 
 SPACE COMPLEXITY : O(n)
 
+![image](https://github.com/user-attachments/assets/6bc13974-1e82-4c81-b997-cd7cd8bd3376)
+
+
 
 
 
@@ -312,7 +318,7 @@ space complexity(n*W)
 
 
 
-AIM: to determine number of stages in the multistage graph
+AIM: to determine number of stages in the multistage graph and to calculate the shortest path using forward approach
 1. start
 2. 2. initialization int maxi=0
 3. input
@@ -335,6 +341,8 @@ AIM: to determine number of stages in the multistage graph
 output 4
     time complexity: O(v+e)
     where v is number of vertices and e is number of edges
+    ![image](https://github.com/user-attachments/assets/0c46b043-0427-41e6-b12b-244652319be7)
+
 
 
 
@@ -377,6 +385,121 @@ m[i][k]+m[k+1][j]+p(i-1)*p(j)*p(k) where k= i to j-1
       edge cases
       1. if the weight of all the items exceed the weight of knapsack then 0 items are included
       2. therefore if no items are selected then profit gained will be 0
+     
+
+AIM:
+solve matrix chain multiplication in such a way that number of matrix multiplications are reduced in multiplying the given sequence of matrices
+1. it uses the following recurrence relation
+2. m[i][j] = 0 if i == j
+m[i][j] = min( m[i][k] + m[k+1][j] + pi-1 * pk * pj )
+          for all i ≤ k < j
+   input : p={10,20,5,10,30}
+   The algorithm uses a DP table m[i][j] where:
+
+m[i][j] stores the minimum number of scalar multiplications needed to compute the product of matrices Ai through Aj.
+
+The optimal cost is built up by solving smaller subproblems and combining their solutions.
+output
+Cost Matrix (m):
+0 1000 1500 4000
+0 0 1000 4500
+0 0 0 1500
+0 0 0 0
+Split Matrix (s):
+0 1 2 2
+0 0 2 2
+0 0 0 3
+0 0 0 0
+order of matrix multiplication:
+( ( A1 A2  )( A3 A4  ) )
+![image](https://github.com/user-attachments/assets/d40b174b-a5f9-4be9-80a6-9f816a3b7216)
+
+
+
+
+AIM:
+to find the longest common subsequence
+the solution builds a DP table where each entry dp[i][j] contains the length of the LCS of the first i characters of X and the first j characters of Y.
+
+Recurrence Relation:
+
+If X[i-1] == Y[j-1]:
+    dp[i][j] = 1 + dp[i-1][j-1]
+Else:
+    dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+    input:
+    enter first string
+shipra
+enter second string
+ship
+4(output)
+![image](https://github.com/user-attachments/assets/64431fc3-46cc-4449-b15a-f5d9dee2d455)
+
+
+AIM:
+Place N queens on an N×N chessboard such that:
+
+No two queens share the same row
+
+No two queens share the same column
+
+No two queens share the same diagonal
+
+The goal is to find all valid configurations.
+input:4
+output:
+enter number of queens
+4
+solution
+0 1 0 0 
+0 0 0 1 
+1 0 0 0 
+0 0 1 0 
+solution
+0 0 1 0 
+1 0 0 0 
+0 0 0 1 
+0 1 0 0 
+
+
+AIM: The M-Coloring Problem is problem in which the goal is to determine if a graph can be colored using at most M colors such that no two adjacent vertices share the same color. This implementation uses a backtracking algorithm.
+
+Given:
+
+An undirected graph with N vertices
+
+An integer M representing the number of available colors
+
+Objective: Assign colors to all vertices such that:
+
+No two adjacent vertices have the same color
+
+Only M different colors are used
+enter the number of vertices
+4
+enter the number of colors
+3
+ys coloring is possible
+1 2 3 2
+
+
+AIM:
+to find the number of hamiltonian cycles
+The Hamiltonian Cycle Problem is problem in which the goal is to determine whether a cycle exists that visits each vertex exactly once and returns to the starting vertex. This problem uses a backtracking approach to find such cycles.
+
+Given an undirected graph with N vertices, determine if there exists a Hamiltonian cycle — a path that:
+
+Starts at a vertex
+
+Visits every other vertex exactly once
+
+Returns to the starting vertex
+![image](https://github.com/user-attachments/assets/c8a87725-6c9f-4ea5-b4e6-da423f2228c1)
+
+
+
+
+   
             
 
     
